@@ -31,7 +31,7 @@ public class MissingNumberFinder {
 
     public static boolean reverseString(String text) {
 
-        if (StringUtils.isBlank(text)) {
+        if (Objects.isNull(text)) {
             return false;
         }
 
@@ -40,9 +40,9 @@ public class MissingNumberFinder {
 
     public static int nearToZero(int[] arr) {
         int value = Integer.MAX_VALUE;
-        for (int i=0; i<arr.length; i++) {
-            if (Math.abs(value)>=Math.abs(arr[i])) {
-                value = arr[i];
+        for (int j : arr) {
+            if (Math.abs(value) >= Math.abs(j)) {
+                value = j;
             }
         }
         return value;
@@ -62,13 +62,10 @@ public class MissingNumberFinder {
     public static boolean findClauses(String text) {
         Stack<Character> stack = new Stack<>();
         char[] charArr = text.toCharArray();
-        
         if (charArr[0] == '}' || charArr[0] == ')' || charArr[0] == ']') {
             return false;
         }
-
         for (char c:charArr) {
-
             if (c == '{' || c== '[' || c=='(') {
                 stack.push(c);
             }
@@ -76,9 +73,9 @@ public class MissingNumberFinder {
                 char top = stack.pop();
                 if ((c == '}' && top != '{') || (c == ']' && top != '[') || (c == ')' && top != '(')) {
                     return false;
+                }
             }
         }
-    }
         return stack.isEmpty();
     }
 
