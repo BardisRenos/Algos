@@ -26,7 +26,6 @@ public class MissingNumberFinder {
     }
 
     public static boolean reverseString(String text) {
-
         if (Objects.isNull(text)) {
             return false;
         }
@@ -58,6 +57,7 @@ public class MissingNumberFinder {
     public static boolean findClauses(String text) {
         Stack<Character> stack = new Stack<>();
         char[] charArr = text.toCharArray();
+
         if (charArr[0] == '}' || charArr[0] == ')' || charArr[0] == ']') {
             return false;
         }
@@ -78,7 +78,7 @@ public class MissingNumberFinder {
     public static void checkNullArray(int[] arr) {
         try {
             if (arr.length==0) {
-                System.out.println("The array has o length");
+                System.out.println("The array has 0 length");
             }
         } catch(NullPointerException exception) {
             System.out.println(exception.getMessage());
