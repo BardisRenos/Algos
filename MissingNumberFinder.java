@@ -14,18 +14,14 @@ public class MissingNumberFinder {
     }
 
     public static boolean isPrime(int num) {
-        // Base case: Numbers less than 2 are not prime
         if (num <= 1) {
             return false;
         }
-        
-        // Check divisibility from 2 to sqrt(num)
         for (int i = 2; i*i <= num; i++) {
             if (num % i == 0) {
-                return false;  // num is divisible by i, so it's not prime
+                return false;
             }
         }
-        
         return true;  // num is prime
     }
 
